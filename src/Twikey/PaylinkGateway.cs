@@ -29,8 +29,8 @@ namespace Twikey
         public async Task<Paylink> CreateAsync(Customer customer, PaylinkRequest linkrequest)
         {
             var parameters = new Dictionary<string, string>();
-            AddIfExists(parameters,"ct", linkrequest.Ct);
-            AddIfExists(parameters,"tc", linkrequest.Tc);
+            AddIfExists(parameters, "ct", linkrequest.Ct);
+            AddIfExists(parameters, "tc", linkrequest.Tc);
 
             AddIfExists(parameters, "title", linkrequest.Message);
             AddIfExists(parameters, "remittance", linkrequest.Remittance);
@@ -44,21 +44,22 @@ namespace Twikey
 
             if (customer != null)
             {
-                AddIfExists(parameters,"customerNumber", customer.CustomerNumber);
-                AddIfExists(parameters,"email", customer.Email);
-                AddIfExists(parameters,"firstname", customer.Firstname);
-                AddIfExists(parameters,"lastname", customer.Lastname);
-                AddIfExists(parameters,"l", customer.Lang);
-                AddIfExists(parameters,"address", customer.Street);
-                AddIfExists(parameters,"city", customer.City);
-                AddIfExists(parameters,"zip", customer.Zip);
-                AddIfExists(parameters,"country", customer.Country);
-                AddIfExists(parameters,"mobile", customer.Mobile);
+                AddIfExists(parameters, "customerNumber", customer.CustomerNumber);
+                AddIfExists(parameters, "email", customer.Email);
+                AddIfExists(parameters, "firstname", customer.Firstname);
+                AddIfExists(parameters, "lastname", customer.Lastname);
+                AddIfExists(parameters, "l", customer.Lang);
+                AddIfExists(parameters, "address", customer.Street);
+                AddIfExists(parameters, "city", customer.City);
+                AddIfExists(parameters, "zip", customer.Zip);
+                AddIfExists(parameters, "country", customer.Country);
+                AddIfExists(parameters, "mobile", customer.Mobile);
 
                 if (customer.CompanyName != null)
                 {
-                    AddIfExists(parameters,"companyName", customer.CompanyName);
-                    AddIfExists(parameters,"coc", customer.Coc);
+                    AddIfExists(parameters, "companyName", customer.CompanyName);
+                    AddIfExists(parameters, "coc", customer.Coc);
+                    AddIfExists(parameters, "vatno", customer.VatNo);
                 }
             }
 

@@ -31,41 +31,42 @@ namespace Twikey
         public async Task<SignableMandate> CreateAsync(Customer customer, MandateRequest mandaterequest)
         {
             var parameters = new Dictionary<string, string>();
-            AddIfExists(parameters,"ct", mandaterequest.Ct);
-            AddIfExists(parameters,"tc", mandaterequest.Tc);
-            AddIfExists(parameters,"iban", mandaterequest.Iban);
-            AddIfExists(parameters,"bic", mandaterequest.Bic);
-            AddIfExists(parameters,"mandateNumber", mandaterequest.MandateNumber);
-            AddIfExists(parameters,"contractNumber", mandaterequest.ContractNumber);
-            AddIfExists(parameters,"campaign", mandaterequest.Campaign);
-            AddIfExists(parameters,"prefix", mandaterequest.Prefix);
-            AddIfExists(parameters,"check", mandaterequest.Check);
-            AddIfExists(parameters,"reminderDays", mandaterequest.ReminderDays);
-            AddIfExists(parameters,"sendInvite", mandaterequest.SendInvite);
-            AddIfExists(parameters,"document", mandaterequest.Document);
-            AddIfExists(parameters,"amount", mandaterequest.Amount);
-            AddIfExists(parameters,"token", mandaterequest.Token);
-            AddIfExists(parameters,"requireValidation", mandaterequest.RequireValidation.ToString());
+            AddIfExists(parameters, "ct", mandaterequest.Ct);
+            AddIfExists(parameters, "tc", mandaterequest.Tc);
+            AddIfExists(parameters, "iban", mandaterequest.Iban);
+            AddIfExists(parameters, "bic", mandaterequest.Bic);
+            AddIfExists(parameters, "mandateNumber", mandaterequest.MandateNumber);
+            AddIfExists(parameters, "contractNumber", mandaterequest.ContractNumber);
+            AddIfExists(parameters, "campaign", mandaterequest.Campaign);
+            AddIfExists(parameters, "prefix", mandaterequest.Prefix);
+            AddIfExists(parameters, "check", mandaterequest.Check);
+            AddIfExists(parameters, "reminderDays", mandaterequest.ReminderDays);
+            AddIfExists(parameters, "sendInvite", mandaterequest.SendInvite);
+            AddIfExists(parameters, "document", mandaterequest.Document);
+            AddIfExists(parameters, "amount", mandaterequest.Amount);
+            AddIfExists(parameters, "token", mandaterequest.Token);
+            AddIfExists(parameters, "requireValidation", mandaterequest.RequireValidation.ToString());
             if (mandaterequest.Attributes != null)
                 foreach (var attr in mandaterequest.Attributes)
                     parameters[attr.Key] = attr.Value;
 
             if (customer != null)
             {
-                AddIfExists(parameters,"customerNumber", customer.CustomerNumber);
-                AddIfExists(parameters,"email", customer.Email);
-                AddIfExists(parameters,"firstname", customer.Firstname);
-                AddIfExists(parameters,"lastname", customer.Lastname);
-                AddIfExists(parameters,"l", customer.Lang);
-                AddIfExists(parameters,"address", customer.Street);
-                AddIfExists(parameters,"city", customer.City);
-                AddIfExists(parameters,"zip", customer.Zip);
-                AddIfExists(parameters,"country", customer.Country);
-                AddIfExists(parameters,"mobile", customer.Mobile);
+                AddIfExists(parameters, "customerNumber", customer.CustomerNumber);
+                AddIfExists(parameters, "email", customer.Email);
+                AddIfExists(parameters, "firstname", customer.Firstname);
+                AddIfExists(parameters, "lastname", customer.Lastname);
+                AddIfExists(parameters, "l", customer.Lang);
+                AddIfExists(parameters, "address", customer.Street);
+                AddIfExists(parameters, "city", customer.City);
+                AddIfExists(parameters, "zip", customer.Zip);
+                AddIfExists(parameters, "country", customer.Country);
+                AddIfExists(parameters, "mobile", customer.Mobile);
                 if (customer.CompanyName != null)
                 {
-                    AddIfExists(parameters,"companyName", customer.CompanyName);
-                    AddIfExists(parameters,"coc", customer.Coc);
+                    AddIfExists(parameters, "companyName", customer.CompanyName);
+                    AddIfExists(parameters, "coc", customer.Coc);
+                    AddIfExists(parameters, "vatno", customer.VatNo);
                 }
             }
 
@@ -153,6 +154,7 @@ namespace Twikey
                 {
                     AddIfExists(parameters, "companyName", customer.CompanyName);
                     AddIfExists(parameters, "coc", customer.Coc);
+                    AddIfExists(parameters, "vatno", customer.VatNo);
                 }
             }
 
